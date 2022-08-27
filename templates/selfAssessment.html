@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r121/three.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.net.min.js"></script>
+        <title>File Compressor</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Kalam:wght@300;400;700&family=Oswald:wght@300;400;500;600&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="../static/css/styles.css">
+        <script src="../static/js/script.js"></script>
+        <!--[if lte IE 6]>
+        <style type="text/css">
+            #container {
+                height: 100%;
+            }
+        </style>
+        <![endif]-->
+    </head>
+
+    <body style="background-color: white;" >
+            <h1 class="saf" style="text-align: center;">Self Assessment Form</h1>
+            <form action="/self" method="post">
+                <label for="name">Name: </label> 
+                <input type="text" autofocus name="name"><br>
+
+                <label for="date">Date:</label>
+                <input type="date" name="date"
+                    value="2022-08-28" min="2022-08-28" max="2022-08-28"><br>
+
+                <label for="class">Class: </label> 
+                <input type="number" name="class" min="7"><br>
+
+                <label for="dob">Date of Birth:</label>
+                <input type="date" name="dob"
+                    value="2022-08-28"><br>
+
+                <label for="address">Address: </label> 
+                <input type="text" name="address"><br>
+
+                <label for="phone">Phone: </label> 
+                <input type="tel" name="phone"><br>
+
+                <label for="dreamProfessions">Dream Professions: </label> 
+                <input type="text" name="dreamProfessions"><br>
+
+                <label for="interestedSubjects">Interested Subjects: </label> 
+                <input type="text" name="interestedSubjects"><br>
+
+                <label for="hobbies">Hobbies, Interests: </label> 
+                <input type="text" name="hobbies"><br>
+
+                <label for="additionalSkills">Additional Skills acquired: </label> 
+                <input type="text" name="additionalSkills"><br>
+
+                <label for="qualitiesLiked">Qualities liked: </label> 
+                <input type="text" name="qualitiesLiked"><br>
+
+                <label for="qualitiesAdmired">Qualities admired by others: </label> 
+                <input type="text" name="qualitiesAdmired"><br>
+
+
+                <button type="submit" class="sub">Submit</button>
+            </form>
+    </body>
+</html>

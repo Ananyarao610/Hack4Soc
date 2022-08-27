@@ -20,14 +20,27 @@ def home():
         print(scores)
         return render_template("home.html");
 
-@app.route("/compress", methods=["GET", "POST"])
+@app.route("/self", methods=["GET", "POST"])
 def compress():
 
     if request.method == "GET":
-        return render_template("compress.html", check=0)
-
+        return render_template("selfAssessment.html", check=0)
     else:
-        return render_template("compress.html", check=-1)
+        print(request.form.get("name"));
+        print(request.form.get("date"));
+        print(request.form.get("class"));
+        print(request.form.get("dob"));
+        print(request.form.get("address"));
+        print(request.form.get("phone"));
+        print(request.form.get("dreamProfessions"));
+        print(request.form.get("interestedSubjects"));
+        print(request.form.get("hobbies"));
+        print(request.form.get("additionalSkills"));
+        print(request.form.get("qualitiesLiked"));
+        print(request.form.get("qualitiesAdmired"));
+
+
+        return render_template("selfAssessment.html", check=-1)
         
 # Restart application whenever changes are made
 if __name__ == "__main__":
