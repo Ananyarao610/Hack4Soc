@@ -39,16 +39,18 @@ d = {
     'Photographer': ['PG Diploma in Photography','A','Geometry',[]],
 }
 mi_scores = [3,4,6,7,2,5,2,7]
-#mi_subjects = ['LIN', 'I-M', 'SP', 'B-K', 'MU', 'NTER', 'NTRA', 'NAT']
-mi_subjects = ['LIN', 'I-M', 'SP', 'Lin', 'MU', 'NTER', 'NTRA', 'NAT']
+mi_subjects = ['LIN', 'I-M', 'SP', 'B-K', 'MU', 'NTER', 'NTRA', 'NAT']
+# mi_subjects = ['LIN', 'I-M', 'SP', 'Lin', 'MU', 'NTER', 'NTRA', 'NAT']
 non_academic = ['carpenter', 'farmer', 'painter', 'pottery']
 marks = 30
 top5=[]
 dream_careers = ['Astronomer','Politician','Writer']
 riasec = [0.1,0.1,0.1,0.1,0.1]
-mi_careers = {'Lin': ['Astronomer','Botanist','Conservationist', 'Ecologist','Meteorologist'],
+mi_careers = {'LIN': ['Astronomer','Botanist','Conservationist', 'Ecologist','Meteorologist'],
     'I-M': ['Audiologist','Audiologist', 'Sound editor', 'Music conductor','Recording engineer','Songwriter'],
     'SP': ['Accountant','Computer analyst', 'Computer technician','Computer programmer','Database designer' ],
+    'B-K': ['Counselor', 'Social Worker', 'Teacher', 'Doctor', 'Businessman'],
+    ''
     }
 
 dream_subjects =['science','math','physics']
