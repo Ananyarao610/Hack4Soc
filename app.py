@@ -2,9 +2,14 @@ import os
 import time
 import glob
 from flask import Flask, redirect, render_template, request, send_file
+from werkzeug.utils import secure_filename
+
 scores = [0, 0, 0, 0, 0, 0, 0, 0]
 # Configure Application
 app = Flask(__name__)
+app.config["FILE_UPLOADS"] = "/Users/harshahl/Desktop/Hack4Soc/Hack4Soc/uploads"
+
+
 
 @app.route("/", methods=["GET", "POST"])
 def home():
@@ -18,7 +23,18 @@ def home():
                 scores[int((i-1)%8)] += 1
         print(request.form.get("q1"));
         print(scores)
-        return render_template("home.html");
+        return render_template("selfAssessment.html");
+
+      
+@app.route("/final", methods=["GET", "POST"])
+def final():
+    if request.method == "GET":
+        return render_template("decompress.html")
+    else:
+        
+        f = request.files['file']
+        f.save(secure_filename(f.filename))
+        return render_template("decompress.html");
 
 @app.route("/self", methods=["GET", "POST"])
 def compress():
