@@ -38,19 +38,22 @@ d = {
     'Interior Decorator': ['Interior Desiging','A','Art, Symmetry',[]],
     'Photographer': ['PG Diploma in Photography','A','Geometry',[]],
 }
-mi_scores = [3,4,6,7,2,5,2,7]
+mi_scores = [3,4,6,7,2,5,2,6]
 mi_subjects = ['LIN', 'I-M', 'SP', 'B-K', 'MU', 'NTER', 'NTRA', 'NAT']
 # mi_subjects = ['LIN', 'I-M', 'SP', 'Lin', 'MU', 'NTER', 'NTRA', 'NAT']
 non_academic = ['carpenter', 'farmer', 'painter', 'pottery']
-marks = 30
+
 top5=[]
-dream_careers = ['Astronomer','Politician','Writer']
+dream_careers = ['Counselor','Politician','Doctor']
 riasec = [0.1,0.1,0.1,0.1,0.1]
 mi_careers = {'LIN': ['Astronomer','Botanist','Conservationist', 'Ecologist','Meteorologist'],
     'I-M': ['Audiologist','Audiologist', 'Sound editor', 'Music conductor','Recording engineer','Songwriter'],
     'SP': ['Accountant','Computer analyst', 'Computer technician','Computer programmer','Database designer' ],
     'B-K': ['Counselor', 'Social Worker', 'Teacher', 'Doctor', 'Businessman'],
-    ''
+    'MU': ['Athlete', 'Dancer', 'Physical Education Instructor', 'Actor / Actress', 'Paramedic'],
+    'NTER': ['Journalist', 'Public Speaker', 'Politician', 'Teacher', 'Actor / Actress'],
+    'NTRA': ['Psychologist', 'Career counselor', 'Writer', 'Consultant', 'Event Management'],
+    'NAT': ['Graphic Designer', 'Architect', 'Fashion Designer', 'Interior Decorator', 'Photographer']
     }
 
 dream_subjects =['science','math','physics']
@@ -59,9 +62,7 @@ dream_subjects =['science','math','physics']
 def assign_career():
 
     final_percentage={}
-    if marks<=30:
-        top5 = non_academic
-
+    
     domain = mi_subjects[mi_scores.index(max(mi_scores))]
     choice =  mi_careers[domain]   #will be a list
     print("This is choice", choice)
@@ -83,14 +84,21 @@ def assign_career():
 
     #to check for common careers
     for i in dream_careers:
+        print("Inside loop")
+        print(choice)
         if i in choice:
             final_percentage[i] = final_percentage[i]*2
     print(final_percentage)
-    print(choice,"Thus is choice")
-    temp='Astronomer'
+    print("Here")
+    print(choice,"This is choice")
+    
     for i in dream_subjects:
+        count=0
         if i in choice_subjects:
-            final_percentage[temp] = final_percentage[temp]+0.05
+            print("This is final career",choice[count])
+            
+            final_percentage[choice[count]] = final_percentage[choice[count]]+0.05
+            count+=1
 
     print(final_percentage)
 assign_career()
