@@ -1,0 +1,6 @@
+testing.txt
+testing-compressed.bin
+testing-decompressed.txt
+.DS_Store
+static/*
+HuffmanCoding.mov
