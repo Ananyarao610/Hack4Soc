@@ -1,12 +1,14 @@
 import os
 import time
 import glob
+from unicodedata import name
 from flask import Flask, redirect, render_template, request, send_file
 from openpyxl import load_workbook
 from docx import Document
 from docxtpl import DocxTemplate
 # import aspose.words as aw
 scores = [0, 0, 0, 0, 0, 0, 0, 0]
+disname = disclass = disdob = ""
 # Configure Application
 app = Flask(__name__)
 
@@ -84,7 +86,7 @@ def compress():
         'Fashion Designer': ['Bachelor of design in fashion, BSc in fashion design, BA in fashion design','A','Fashion, Art',[0.2,0.1,0.4,0.2,0.2,0.2]],
         'Interior Decorator': ['Interior Desiging','A','Art, Symmetry',[0.3,0.1,0.4,0.2,0.2,0.2]],
         'Photographer': ['PG Diploma in Photography','A','Geometry',[0.4,0.1,0.4,0.3,0.1,0.1]],
-    }
+        }
 
         def li_calc(c):
             if c=='Bachelor of Psychology':
@@ -189,6 +191,10 @@ def compress():
                 final_percentage[choice[count]] = final_percentage[choice[count]]+0.05
             count+=1
 
+
+        disname = request.form.get("name");
+        disclass = request.form.get("class")
+        disdob = request.form.get("dob")
        
         print(request.form.get("name"))
         print(request.form.get("date"))
@@ -332,10 +338,15 @@ def compress():
         template.render(to_fill_in)
         filename = 'hack_draft.docx'
         filled_path = os.path.join('./'+filename)
-        template.save(filled_path)
-        doc = aw.Document("hack_draft.docx")
+        # template.save(filled_path)
+        # doc = aw.Document("hack_draft.docx")
         # doc.save("final.pdf")
-        # return render_template("final.html", check=-1)
+        return render_template("a.html", disname=disname, disclass=disclass, disdob=disdob)
+
+@app.route("/download")
+def download_file():
+    path = "hack_draft.docx"
+    return send_file(path, as_attachment=True)
         
 # Restart application whenever changes are made
 if __name__ == "__main__":

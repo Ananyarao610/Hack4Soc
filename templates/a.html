@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<head>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.1/chart.js" integrity="sha512-Lii3WMtgA0C0qmmkdCpsG0Gjr6M0ajRyQRQSbTF6BsrVh/nhZdHpVZ76iMIPvQwz1eoXC3DmAg9K51qT5/dEVg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com"> 
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
+<link href="https://fonts.googleapis.com/css2?family=Kalam:wght@300;400;700&family=Oswald:wght@300;400;500;600&display=swap" rel="stylesheet">
+</head>
+<style>
+
+    button{
+        border-radius: 10px;
+        border: none;
+        margin-left: 1000px;
+        margin-top: 200px;
+        padding: 20px 30px;
+        background-color: rgb(92, 221, 235);
+        font-size: 30px;
+    }
+
+    button:hover{
+        cursor: pointer;
+    }
+
+    #download{
+        color: black;
+        text-decoration: none;
+        
+    }
+   
+     .chartbox{
+             height: 340px;
+              width: 350px;
+            margin-left: 50px;
+            margin-right: auto;
+        
+         }
+         .chartbox1{
+             height: 190px;
+              width: 700px;
+            margin-left: 50px;
+            margin-right: auto;
+         }
+         .parent{
+                display: flex;
+                width: 50%;
+         }
+         .heading{
+            font-family: 'Oswald', sans-serif;
+            color: darkblue;
+            text-align: center;
+            font-size: 60px;
+         }
+
+         .details{
+            font-family: 'Kalam', cursive;
+            color: rgb(0, 0, 0);
+            text-align: center;
+            margin-left: 750px;
+            margin-top: -500px;
+            font-size: 40px;
+         }
+  
+  
+  
+</style>
+<body>
+    <centre><h1 class="heading">Results</h1></centre>
+    <div class="parent">
+        <div class="chartbox">
+            <canvas id="myChart3" width="2" height="2"></canvas>
+        </div>
+        <div class="chartbox">
+            <canvas id="myChart2" width="2" height="2"></canvas>
+        </div>
+      
+    </div>
+    <div class="chartbox1">
+        <canvas id="myChart"></canvas>
+    </div>
+    <div class="details">
+        <p>Name: {{disname}}</p>
+        <p>Date of birth: {{disdob}}</p>
+        <p>Class: {{disclass}}</p>
+    </div>
+    <button><a id="download" href="/download">Download</a></button>
+
+</body>
+<script>
+    const plugin = { //bckgrnd color for graph
+   id: 'custom_canvas_background_color',
+   beforeDraw: (chart) => {
+     const ctx = chart.canvas.getContext('2d');
+     ctx.save();
+     ctx.globalCompositeOperation = 'destination-over';
+     ctx.fillStyle = 'lightBlue';
+     ctx.fillRect(0, 0, chart.width, chart.height);
+     ctx.restore();
+   }
+ };
+    let wid = ['a','b','c','d','e'];
+    let wq = [10,43,32,55,22];
+    let x_axis2 = ['Linguistic','Logical Mathematical','Spatial','Bodily-Kinesthetic','Musical','Interpersonal','Intrapersonal','Naturalist']
+    let y_axis2 = [3,2,5,6,2,1,6,8]
+    const ctx = document.getElementById('myChart').getContext('2d');
+ const myChart = new Chart(ctx, { //graph definition
+     type: 'line',
+     data: {
+         labels: x_axis2,
+         datasets: [{
+             data: y_axis2,
+             backgroundColor: [
+             '#003f5c',
+                '#2f4b7c',
+                '#665191',
+                '#a05195',
+                '#d45087',
+                '#f95d6a',
+                '#ff7c43',
+                '#ffa600',
+                'rgba(54, 162, 235, 0.9)',
+                'rgba(255, 206, 86, 0.9)',
+             ],
+             borderColor: [
+             '#003f5c',
+                '#2f4b7c',
+                '#665191',
+                '#a05195',
+                '#d45087',
+                '#f95d6a',
+                '#ff7c43',
+                '#ffa600',
+                'rgba(54, 162, 235, 0.9)',
+                'rgba(255, 206, 86, 0.9)',
+             ],
+             hoverOffset: 5,
+             borderWidth: 1,
+         }
+         ]
+     },
+     plugins: [plugin],
+     options: {
+       plugins: {
+             title: {
+                 display: true,
+                 text: "Multiple Intelligences Test Scores",
+             },
+
+         },
+
+     }
+
+ });
+
+    let x_axis = ['Realistic','Investigative','Artistic','Social','Entreprising','Conventional']
+    let y_axis = [3,2,5,6,2,1]
+    const ctx2 = document.getElementById('myChart2').getContext('2d');
+ const myChart2 = new Chart(ctx2, { //graph definition
+     type: 'bar',
+     data: {
+         labels: x_axis,
+         datasets: [{
+             data: y_axis,
+             backgroundColor: [
+             '#003f5c',
+                '#2f4b7c',
+                '#665191',
+                '#a05195',
+                '#d45087',
+                '#f95d6a',
+                '#ff7c43',
+                '#ffa600',
+                'rgba(54, 162, 235, 0.9)',
+                'rgba(255, 206, 86, 0.9)',
+             ],
+             borderColor: [
+             '#003f5c',
+                '#2f4b7c',
+                '#665191',
+                '#a05195',
+                '#d45087',
+                '#f95d6a',
+                '#ff7c43',
+                '#ffa600',
+                'rgba(54, 162, 235, 0.9)',
+                'rgba(255, 206, 86, 0.9)',
+             ],
+             hoverOffset: 5,
+             borderWidth: 1,
+         }
+         ]
+     },
+     plugins: [plugin],
+     options: {
+       plugins: {
+             title: {
+                 yRange: (0,32),
+                 display: true,
+                 text: "RIASEC scores",
+             },
+
+         },
+         yAxes: [{
+                            display: true,
+                            ticks: {
+                                beginAtZero: true,
+                        
+                                max: 32
+                            }
+                        }],
+                },
+
+     }
+    
+ );
+
+    const ctx3 = document.getElementById('myChart3').getContext('2d');
+ const myChart3 = new Chart(ctx3, { //graph definition
+     type: 'doughnut',
+     data: {
+         labels: wid,
+         datasets: [{
+             data: wq,
+             backgroundColor: [
+             '#003f5c',
+                '#2f4b7c',
+                '#665191',
+                '#a05195',
+                '#d45087',
+                '#f95d6a',
+                '#ff7c43',
+                '#ffa600',
+                'rgba(54, 162, 235, 0.9)',
+                'rgba(255, 206, 86, 0.9)',
+             ],
+             borderColor: [
+             '#003f5c',
+                '#2f4b7c',
+                '#665191',
+                '#a05195',
+                '#d45087',
+                '#f95d6a',
+                '#ff7c43',
+                '#ffa600',
+                'rgba(54, 162, 235, 0.9)',
+                'rgba(255, 206, 86, 0.9)',
+             ],
+             hoverOffset: 5,
+             borderWidth: 1,
+         }
+         ]
+     },
+     plugins: [plugin],
+     options: {
+       plugins: {
+             title: {
+                 display: true,
+                 text: "Top 5 Career choices",
+             },
+
+         },
+
+     }
+
+ });
+</script>
+</html>
