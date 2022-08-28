@@ -30,15 +30,16 @@ def home():
 @app.route("/first", methods=["GET", "POST"])
 def first():
     return render_template("index2.html")
+
 @app.route("/final", methods=["GET", "POST"])
 def final():
     if request.method == "GET":
-        return render_template("decompress.html")
+        return render_template("final.html")
     else:
         
         f = request.files['file']
         f.save(secure_filename(f.filename))
-        return render_template("decompress.html");
+        return render_template("final.html");
 
 @app.route("/self", methods=["GET", "POST"])
 def compress():
@@ -164,7 +165,7 @@ def compress():
         
 
 
-        return render_template("selfAssessment.html", check=-1)
+        return render_template("final.html", check=-1)
         
 # Restart application whenever changes are made
 if __name__ == "__main__":
