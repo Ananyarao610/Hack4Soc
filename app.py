@@ -15,6 +15,7 @@ app.config["FILE_UPLOADS"] = "/Users/harshahl/Desktop/Hack4Soc/Hack4Soc/uploads"
 def home():
     if request.method == "GET":
         return render_template("home.html")
+        
     else:
         
         for i in range (1,81):
@@ -26,6 +27,9 @@ def home():
         return render_template("selfAssessment.html");
 
       
+@app.route("/first", methods=["GET", "POST"])
+def first():
+    return render_template("index2.html")
 @app.route("/final", methods=["GET", "POST"])
 def final():
     if request.method == "GET":
