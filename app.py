@@ -5,7 +5,7 @@ from flask import Flask, redirect, render_template, request, send_file
 from openpyxl import load_workbook
 from docx import Document
 from docxtpl import DocxTemplate
-import aspose.words as aw
+# import aspose.words as aw
 scores = [0, 0, 0, 0, 0, 0, 0, 0]
 # Configure Application
 app = Flask(__name__)
@@ -334,8 +334,8 @@ def compress():
         filled_path = os.path.join('./'+filename)
         template.save(filled_path)
         doc = aw.Document("hack_draft.docx")
-        doc.save("final.pdf")
-        return render_template("final.html", check=-1)
+        # doc.save("final.pdf")
+        # return render_template("final.html", check=-1)
         
 # Restart application whenever changes are made
 if __name__ == "__main__":
